@@ -1,4 +1,16 @@
-//$backgroundColor: #2ecc71;
+:root {
+  --tournio-primary: #1f60c2;
+  --tournio-cyan: #68d3e8;
+  --tournio-red: #bf2e3c;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --tournio-body-bg: #121212;
+    --tournio-body-color: #e1e2e4;
+    --tournio-primary: #2a79ef;
+  }
+}
 
 html {
   font-size: 1rem;
@@ -8,3 +20,6 @@ html {
   display: block;
 }
 
+.form-check-input:checked {
+  background-color: var(--tournio-primary);
+}

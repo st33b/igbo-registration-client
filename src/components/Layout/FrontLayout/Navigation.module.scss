@@ -8,6 +8,9 @@
   }
   .HomeLinkMd {
     background: url('../../../images/tournio-logo.png') no-repeat left top;
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../images/tournio-logo-inverted.png');
+    }
     background-size: contain;
     //a { margin-left: 5rem; }
     height: 2rem;
