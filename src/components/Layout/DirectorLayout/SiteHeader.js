@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-export const siteTitle = 'IGBO Tournament Administration';
+export const siteTitle = 'Tournio Administration';
 
 const SiteHeader = () => (
   <Head>

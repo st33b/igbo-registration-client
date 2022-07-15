@@ -1,16 +1,43 @@
-:root {
-  --tournio-primary: #1f60c2;
-  --tournio-cyan: #68d3e8;
-  --tournio-red: #bf2e3c;
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
+    --tournio-red: #fa4658;
+    --tournio-blue: #5398ff;
+    --tournio-indigo: #af85f4;
+    --tournio-purple: #a77df4;
+    --tournio-pink: #e08eb7;
+    --tournio-orange: #fba155;
+    --tournio-yellow: #f7ea1e;
+    --tournio-green: #6dc87d;
+    --tournio-teal: #37e3b0;
+    --tournio-cyan: #23a0b9;
+    
+    --tournio-white: #222222;
+
     --tournio-body-bg: #121212;
-    --tournio-body-color: #e1e2e4;
-    --tournio-primary: #2a79ef;
+    --tournio-body-color: #d5d7da;
+
+    --tournio-primary:       var(--tournio-blue);
+    --tournio-secondary:     var(--tournio-gray-300);
+    --tournio-success:       var(--tournio-green);
+    --tournio-info:          var(--tournio-cyan);
+    --tournio-warning:       var(--tournio-yellow);
+    --tournio-danger:        var(--tournio-red);
+    --tournio-light:         var(--tournio-gray-800);
+    --tournio-dark:          var(--tournio-gray-200);
   }
 }
+
+.btn-primary {
+  background-color: var(--tournio-primary);
+  border-color: var(--tournio-primary);
+}
+  //"secondary":  var(--tournio-secondary),
+  //"success":    var(--tournio-success),
+  //"info":       var(--tournio-info),
+  //"warning":    var(--tournio-warning),
+  //"danger":     var(--tournio-danger),
+  //"light":      var(--tournio-light),
+  //"dark":       var(--tournio-dark)
 
 html {
   font-size: 1rem;
@@ -22,4 +49,25 @@ html {
 
 .form-check-input:checked {
   background-color: var(--tournio-primary);
+}
+
+.card {
+  background-color: var(--tournio-white);
+}
+
+.form-control {
+  color: var(--tournio-body-color);
+  background-color: var(--tournio-body-bg);
+  &:focus {
+    color: var(--tournio-body-color);
+    background-color: var(--tournio-body-bg);
+    //border-color: $input-focus-border-color;
+    //outline: 0;
+    //@if $enable-shadows {
+    //  @include box-shadow($input-box-shadow, $input-focus-box-shadow);
+    //} @else {
+    //  // Avoid using mixin so we can pass custom focus shadow properly
+    //  box-shadow: $input-focus-box-shadow;
+    //}
+  }
 }
