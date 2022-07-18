@@ -23,3 +23,13 @@
 .NotSelected:hover {
   background-color: #f3f3f3;
 }
+
+@media (prefers-color-scheme: dark) {
+  .Selected {
+    background-color: var(--tournio-gray-700);
+  }
+
+  .NotSelected:hover {
+    background-color: var(--tournio-gray-900);
+  }
+}

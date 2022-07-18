@@ -126,7 +126,7 @@ const StatusAndCounts = ({testEnvironmentUpdated}) => {
   );
 
   const downloads = (
-    <Card.Body className={'bg-white text-dark'}>
+    <Card.Body>
       <Card.Subtitle className={'mb-3'}>
         Downloads
       </Card.Subtitle>
@@ -205,7 +205,7 @@ const StatusAndCounts = ({testEnvironmentUpdated}) => {
   }
 
   const actions = ['active', 'closed'].includes(context.tournament.state) && (
-    <Card.Body className={'bg-white text-dark'}>
+    <Card.Body>
       <Card.Subtitle className={'mb-3'}>
         Actions
       </Card.Subtitle>
@@ -308,7 +308,7 @@ const StatusAndCounts = ({testEnvironmentUpdated}) => {
         );
       }
       clearTestData = (
-        <Card.Body className={'bg-white text-dark'}>
+        <Card.Body>
           <Card.Text>
             {!loading && (
               <Button variant={'warning'} onClick={clearTestDataClickHandler}>
@@ -341,7 +341,7 @@ const StatusAndCounts = ({testEnvironmentUpdated}) => {
         );
       }
       testingStatusContent = (
-        <Card.Body className={'bg-white text-dark border-bottom border-top'}>
+        <Card.Body className={'border-bottom border-top'}>
           <Card.Title as={'h6'} className={'fw-light mb-3'}>
             Environment Setup
           </Card.Title>
@@ -395,7 +395,7 @@ const StatusAndCounts = ({testEnvironmentUpdated}) => {
   }
 
   const frontPageLink = (
-    <Card.Body className={'bg-white text-dark'}>
+    <Card.Body>
       <a href={`/tournaments/${context.tournament.identifier}`} target={'_new'}>
         Front Page
         <i className={classes.ExternalLink + " bi-box-arrow-up-right"} aria-hidden="true"/>
@@ -404,8 +404,8 @@ const StatusAndCounts = ({testEnvironmentUpdated}) => {
   );
 
   return (
-    <Card bg={bgColor} text={textColor} className={classes.Card + ' text-center'}>
-      <Card.Header as={'h5'}>
+    <Card className={classes.Card + ' text-center'}>
+      <Card.Header as={'h5'} className={`bg-${bgColor} text-${textColor}`}>
         {context.tournament.status}
       </Card.Header>
       {counts}

@@ -9,7 +9,7 @@ import classes from './Breadcrumbs.module.scss';
 const breadcrumbs = ({ladder, activeText}) => {
   return (
     <div className={classes.Breadcrumbs}>
-      <Breadcrumb className={'bg-light py-2 ps-2'}>
+      <Breadcrumb className={'py-2 ps-2'}>
         {/* sequential list of crumbs... */}
         {ladder.map((item, i) => {
           return (

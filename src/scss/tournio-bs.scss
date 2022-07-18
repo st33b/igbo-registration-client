@@ -48,13 +48,13 @@ $dim-white: #d5d7da;
 // Do our map overrides here
 $dark-mode-colors: (
   "primary": $lighter-blue,
-  "secondary": $gray-600,
+  "secondary": $gray-500,
   "success": $lighter-green,
   //"info": $dark-cyan,
   "warning": $darker-yellow,
   "danger": $lighter-red,
-  "light": $gray-300,
-  "dark": $gray-900
+  "light": $gray-400,
+  "dark": $gray-300
 );
 
 // The rest of what's required
@@ -119,12 +119,53 @@ $dark-mode-colors: (
     }
   }
 
+  .form-select {
+    background-color: var(--tournio-gray-800);
+    color: var(--tournio-body-color);
+  }
+
+  .list-group {
+    --#{$prefix}list-group-color: $gray-100;
+    --#{$prefix}list-group-bg: $gray-900;
+    --#{$prefix}list-group-action-color: $gray-300;
+    --#{$prefix}list-group-action-hover-color: $gray-300;
+    --#{$prefix}list-group-action-hover-bg: $gray-800;
+    --#{$prefix}list-group-action-active-color: #d5d7da;
+    --#{$prefix}list-group-action-active-bg: $gray-800;
+  }
+
+  // Set dark-mode style for each theme where we couldn't earlier
   @each $color, $value in $dark-mode-colors {
+    // buttons
     .btn-#{$color} {
       @include button-variant($value, $value);
     }
+    // outline buttons
     .btn-outline-#{$color} {
       @include button-outline-variant($value);
+    }
+    // tables
+    :root {
+      .table-#{$color} {
+        $color: color-contrast(opaque(#121212, $value));
+        $hover-bg: mix($color, $value, percentage($table-hover-bg-factor));
+        $striped-bg: mix($color, $value, percentage($table-striped-bg-factor));
+        $active-bg: mix($color, $value, percentage($table-active-bg-factor));
+        $border-color: mix($color, $value, percentage($table-border-factor));
+
+        --#{$prefix}table-color: #{$color};
+        --#{$prefix}table-bg: #{$value};
+        --#{$prefix}table-border-color: #{$border-color};
+        --#{$prefix}table-striped-bg: #{$striped-bg};
+        --#{$prefix}table-striped-color: #{color-contrast($striped-bg)};
+        --#{$prefix}table-active-bg: #{$active-bg};
+        --#{$prefix}table-active-color: #{color-contrast($active-bg)};
+        --#{$prefix}table-hover-bg: #{$hover-bg};
+        --#{$prefix}table-hover-color: #{color-contrast($hover-bg)};
+
+        color: var(--#{$prefix}table-color);
+        border-color: var(--#{$prefix}table-border-color);
+      }
     }
   }
 }
