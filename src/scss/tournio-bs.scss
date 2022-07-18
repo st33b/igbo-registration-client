@@ -1,0 +1,130 @@
+// Necessary Bootstrap stuff first
+@import "../../node_modules/bootstrap/scss/functions";
+
+// here
+
+$font-family-sans-serif: "Plus Jakarta Sans",
+-apple-system,
+BlinkMacSystemFont,
+"Segoe UI",
+Roboto,
+"Helvetica Neue",
+Arial,
+sans-serif,
+"Apple Color Emoji",
+"Segoe UI Emoji",
+"Segoe UI Symbol";
+
+$prefix: tournio-;
+
+// Our variable overrides from things that are hard-coded in BS _variables
+$primary: #1f60c2;
+$success: #40824c;
+$info: #68d3e8;
+$danger: #bf2e3c;
+
+// These are hard-coded in BS, so we're changing them here.
+$accordion-button-active-color: #333;
+$component-active-bg: #adb5bd;
+$form-check-input-checked-bg-color: $primary;
+
+// my dark-mode colors
+$lighter-blue: #5398ff;
+$lighter-red: #fa4658;
+$lighter-indigo: #af85f4;
+$lighter-purple: #a77df4;
+$darker-pink: #e08eb7;
+$darker-orange: #fba155;
+$darker-yellow: #f7ea1e;
+$lighter-green: #6dc87d;
+$darker-teal: #37e3b0;
+
+$darkest-gray: #121212;
+$dim-white: #d5d7da;
+
+// The rest of the Bootstrap imports
+@import "../../node_modules/bootstrap/scss/variables";
+
+// Do our map overrides here
+$dark-mode-colors: (
+  "primary": $lighter-blue,
+  "secondary": $gray-600,
+  "success": $lighter-green,
+  //"info": $dark-cyan,
+  "warning": $darker-yellow,
+  "danger": $lighter-red,
+  "light": $gray-300,
+  "dark": $gray-900
+);
+
+// The rest of what's required
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/utilities";
+
+// The individual parts we use
+@import "../../node_modules/bootstrap/scss/root";
+@import "../../node_modules/bootstrap/scss/reboot";
+@import "../../node_modules/bootstrap/scss/type";
+@import "../../node_modules/bootstrap/scss/images";
+@import "../../node_modules/bootstrap/scss/containers";
+@import "../../node_modules/bootstrap/scss/grid";
+@import "../../node_modules/bootstrap/scss/tables";
+@import "../../node_modules/bootstrap/scss/forms";
+@import "../../node_modules/bootstrap/scss/buttons";
+@import "../../node_modules/bootstrap/scss/dropdown";
+@import "../../node_modules/bootstrap/scss/nav";
+@import "../../node_modules/bootstrap/scss/navbar";
+@import "../../node_modules/bootstrap/scss/card";
+@import "../../node_modules/bootstrap/scss/accordion";
+@import "../../node_modules/bootstrap/scss/breadcrumb";
+@import "../../node_modules/bootstrap/scss/badge";
+@import "../../node_modules/bootstrap/scss/alert";
+@import "../../node_modules/bootstrap/scss/progress";
+@import "../../node_modules/bootstrap/scss/list-group";
+@import "../../node_modules/bootstrap/scss/close";
+@import "../../node_modules/bootstrap/scss/tooltip";
+@import "../../node_modules/bootstrap/scss/popover";
+@import "../../node_modules/bootstrap/scss/spinners";
+@import "../../node_modules/bootstrap/scss/offcanvas";
+@import "../../node_modules/bootstrap/scss/placeholders";
+@import "../../node_modules/bootstrap/scss/helpers";
+
+// And lastly, to generate the Sass map
+@import "../../node_modules/bootstrap/scss/utilities/api";
+
+// Now anything else we need to do that constitutes a Bootstrap customization
+
+// Bring in versions of the component theme classes for use in dark mode
+@media (prefers-color-scheme: dark) {
+  :root {
+    --tournio-body-bg: #121212;
+    --tournio-body-bg-rgb: #{to-rgb(#121212)};
+    --tournio-body-color: #d5d7da;
+    --tournio-body-color-rgb: #{to-rgb(#d5d7da)};
+    --tournio-link-color: #5398ff;
+
+    @each $color, $value in $dark-mode-colors {
+      --#{$prefix}#{$color}: #{$value};
+    }
+  }
+
+  .form-control {
+    background-color: $gray-800;
+    color: $gray-200;
+
+    &:focus {
+      background-color: $gray-700;
+      color: $gray-200;
+    }
+  }
+
+  @each $color, $value in $dark-mode-colors {
+    .btn-#{$color} {
+      @include button-variant($value, $value);
+    }
+    .btn-outline-#{$color} {
+      @include button-outline-variant($value);
+    }
+  }
+}

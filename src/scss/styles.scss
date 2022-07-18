@@ -1,4 +1,6 @@
-//$backgroundColor: #2ecc71;
+
+// Our stuff
+
 
 html {
   font-size: 1rem;
@@ -8,3 +10,18 @@ html {
   display: block;
 }
 
+@media (prefers-color-scheme: dark) {
+  .card {
+    background-color: var(--tournio-gray-900);
+  }
+
+  .invalid-feedback {
+    color: var(--tournio-danger);
+  }
+
+  .was-validated .form-control {
+     &:invalid {
+       border-color: var(--tournio-danger);
+     }
+   }
+}

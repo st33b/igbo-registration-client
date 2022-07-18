@@ -43,7 +43,7 @@ const Login = () => {
       </Row>
       <Row>
         <Col xs={12} sm={{span: 8, offset: 2}} md={{span: 6, offset: 3}}>
-          <Card className={'border-0 text-center'}>
+          <Card className={'border-0 text-center mb-3'}>
             <Card.Body>
               <Card.Link href={'/'}>
                 Tournio Home

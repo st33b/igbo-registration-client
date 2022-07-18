@@ -1,4 +1,4 @@
-import '../scss/igbo-reg-bs.scss';
+import '../scss/tournio-bs.scss';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../scss/styles.scss';
 
