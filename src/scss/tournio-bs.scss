@@ -24,7 +24,6 @@ $info: #68d3e8;
 $danger: #bf2e3c;
 
 // These are hard-coded in BS, so we're changing them here.
-$accordion-button-active-color: #333;
 $component-active-bg: #adb5bd;
 $form-check-input-checked-bg-color: $primary;
 
@@ -53,9 +52,10 @@ $dark-mode-colors: (
   //"info": $dark-cyan,
   "warning": $darker-yellow,
   "danger": $lighter-red,
-  "light": $gray-400,
-  "dark": $gray-300
+  "light": $gray-600,
+  "dark": $gray-900
 );
+$dark-mode-colors-rgb: map-loop($dark-mode-colors, to-rgb, "$value");
 
 // The rest of what's required
 @import "../../node_modules/bootstrap/scss/maps";
@@ -97,6 +97,7 @@ $dark-mode-colors: (
 
 // Bring in versions of the component theme classes for use in dark mode
 @media (prefers-color-scheme: dark) {
+  // Set the CSS variables we need to set
   :root {
     --tournio-body-bg: #121212;
     --tournio-body-bg-rgb: #{to-rgb(#121212)};
@@ -106,6 +107,9 @@ $dark-mode-colors: (
 
     @each $color, $value in $dark-mode-colors {
       --#{$prefix}#{$color}: #{$value};
+    }
+    @each $color, $value in $dark-mode-colors-rgb {
+      --#{$prefix}#{$color}-rgb: #{$value};
     }
   }
 
@@ -119,23 +123,20 @@ $dark-mode-colors: (
     }
   }
 
-  .form-select {
-    background-color: var(--tournio-gray-800);
-    color: var(--tournio-body-color);
-  }
-
-  .list-group {
-    --#{$prefix}list-group-color: $gray-100;
-    --#{$prefix}list-group-bg: $gray-900;
-    --#{$prefix}list-group-action-color: $gray-300;
-    --#{$prefix}list-group-action-hover-color: $gray-300;
-    --#{$prefix}list-group-action-hover-bg: $gray-800;
-    --#{$prefix}list-group-action-active-color: #d5d7da;
-    --#{$prefix}list-group-action-active-bg: $gray-800;
-  }
-
   // Set dark-mode style for each theme where we couldn't earlier
   @each $color, $value in $dark-mode-colors {
+    // link colors
+    .link-#{$color} {
+      color: $value !important;
+
+      @if $link-shade-percentage != 0 {
+        &:hover,
+        &:focus {
+          color: if(color-contrast($value) == $color-contrast-light, shade-color($value, $link-shade-percentage), tint-color($value, $link-shade-percentage)) !important;
+        }
+      }
+    }
+
     // buttons
     .btn-#{$color} {
       @include button-variant($value, $value);

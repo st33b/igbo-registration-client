@@ -20,7 +20,7 @@ const SingleUseItem = ({item, removed}) => {
       <div className={'ms-auto align-self-center'}>
         <a href={'#'}
            onClick={removeClickedHandler}
-           className={`${classes.RemoveLink} pe-3 text-danger text-opacity-75`}>
+           className={`${classes.RemoveLink} pe-3 text-danger`}>
           <i className={'bi-x-circle-fill'} />
           <span className={'visually-hidden'}>Remove</span>
         </a>

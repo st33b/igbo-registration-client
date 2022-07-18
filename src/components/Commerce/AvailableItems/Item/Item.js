@@ -14,7 +14,7 @@ const item = ({item, added, preview}) => {
       <div className={'ms-auto align-self-center'}>
         <a href={'#'}
            onClick={addClickedHandler}
-           className={`${classes.AddLink} pe-3 text-success text-opacity-75`}>
+           className={`${classes.AddLink} pe-3 text-success`}>
           <i className={`bi-plus-square-fill`} />
           <span className={'visually-hidden'}>Add</span>
         </a>

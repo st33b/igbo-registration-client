@@ -9,6 +9,17 @@
       padding: 0;
     }
   }
+  .navbar {
+    //--tournio-navbar-color: var(--tournio-body-color);
+    //--tournio-navbar-hover-color: rgba(var(--tournio-body-color), .75);
+  }
+  @media (prefers-color-scheme: dark) {
+    //.navbar {
+    //  --tournio-navbar-color: var(--tournio-body-color);
+    //  --tournio-navbar-hover-color: rgba(var(--tournio-body-color), .75);
+    //}
+  }
+
   //@media (min-width: 768px) {
   //  .BrandWrapper {
   //    background: url('../../../images/tournio-logo-inverted.png') no-repeat left center;

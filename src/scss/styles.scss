@@ -1,4 +1,3 @@
-
 // Our stuff
 
 
@@ -10,9 +9,28 @@ html {
   display: block;
 }
 
+.accordion {
+  --tournio-accordion-color: var(--tournio-body-color);
+  --tournio-accordion-bg: var(--tournio-body-bg);
+  --tournio-accordion-active-color: var(--tournio-body-color);
+  --tournio-accordion-active-bg: var(--tournio-body-bg);
+}
+
 @media (prefers-color-scheme: dark) {
   .card {
     background-color: var(--tournio-gray-900);
+  }
+
+  .list-group {
+    --tournio-list-group-color: var(--tournio-gray-100);
+    --tournio-list-group-bg: var(--tournio-body-bg);
+    --tournio-list-group-action-hover-color: var(--tournio-gray-300);
+    --tournio-list-group-action-hover-bg: var(--tournio-gray-800);
+  }
+
+  .form-select {
+    background-color: var(--tournio-gray-800);
+    color: var(--tournio-body-color);
   }
 
   .invalid-feedback {
@@ -20,8 +38,8 @@ html {
   }
 
   .was-validated .form-control {
-     &:invalid {
-       border-color: var(--tournio-danger);
-     }
-   }
+    &:invalid {
+      border-color: var(--tournio-danger);
+    }
+  }
 }

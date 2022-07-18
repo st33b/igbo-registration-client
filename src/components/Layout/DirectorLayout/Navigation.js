@@ -18,9 +18,10 @@ const Navigation = () => {
 
   return (
     <div className={classes.Navigation}>
-      <Navbar variant={'dark'} bg={'dark'} collapseOnSelect expand={'md'}>
+      <nav className={'navbar navbar-expand-md navbar-dark bg-dark'}>
+      {/*<Navbar collapseOnSelect expand={'md'} variant={'dark'}>*/}
         <div className={classes.BrandWrapper}>
-          <Navbar.Brand href={'/director'} className={classes.Brand}>
+          <a href={'/director'} className={`navbar-brand ${classes.Brand}`}>
             {/* This is a bit of a hack to make the image clickable. It will resize to however long the text is. */}
             <span className={'invisible'}>
               Tournio-oh-oh
@@ -29,33 +30,46 @@ const Navigation = () => {
             <span className={`visually-hidden`}>
               Tournio
             </span>
-          </Navbar.Brand>
+          </a>
         </div>
         {loggedIn && (
           <>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id={'basic-navbar-nav'}>
-              <Nav className={'ms-4 me-auto'}>
+            {/*<Navbar.Toggle aria-controls="basic-navbar-nav" />*/}
+            <button className="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#basic-navbar-nav"
+                    aria-controls="basic-navbar-nav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+
+            {/*<Navbar.Collapse id={'basic-navbar-nav'}>*/}
+            <div className={'collapse navbar-collapse'} id={'basic-navbar-nav'}>
+              <div className={'navbar-nav ms-4 me-auto'}>
                 {isSuperuser && (
-                  <Nav.Link href={'/director/users'}>
+                  <a href={'/director/users'} className={'nav-link'}>
                     User Accounts
-                  </Nav.Link>
+                  </a>
                 )}
                 {directorContext.user && (
-                  <Nav.Link href={'/director/users/' + directorContext.user.identifier}>
+                  <a href={'/director/users/' + directorContext.user.identifier}
+                     className={'nav-link'}>
                     My Profile
-                  </Nav.Link>
+                  </a>
                 )}
-              </Nav>
-              <Nav className={'ms-2 ms-md-auto pe-2'}>
-                <Nav.Link href={'/director/logout'}>
+              </div>
+              <div className={'navbar-nav ms-2 ms-md-auto pe-2'}>
+                <a href={'/director/logout'} className={'nav-link'}>
                   Log Out
-                </Nav.Link>
-              </Nav>
-            </Navbar.Collapse>
+                </a>
+              </div>
+            </div>
           </>
         )}
-      </Navbar>
+      {/*</Navbar>*/}
+      </nav>
     </div>
   );
 };

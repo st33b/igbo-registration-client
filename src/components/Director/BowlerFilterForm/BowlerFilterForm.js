@@ -61,7 +61,7 @@ const BowlerFilterForm = ({onFilterApplication, onFilterReset}) => {
   }
 
   const form = (
-    <Form onSubmit={formHandler} className={'p-3 bg-light col-md-10 offset-md-1 col-lg-8 offset-lg-2'} >
+    <Form onSubmit={formHandler} className={'p-3 col-md-10 offset-md-1 col-lg-8 offset-lg-2'} >
       <FloatingLabel label={'Name'}
                      controlId={'name_xs'}
                      className={'d-sm-none'}>
@@ -186,10 +186,10 @@ const BowlerFilterForm = ({onFilterApplication, onFilterReset}) => {
 
       <Form.Group as={Row}>
         <Col sm={{span: 9, offset: 3}} className={'d-flex'}>
-          <Button variant={'dark'} type={'submit'}>
+          <Button variant={'light'} type={'submit'}>
             Apply Filters
           </Button>
-          <Button variant={'outline-dark'}
+          <Button variant={'outline-light'}
                   type={'button'}
                   className={'ms-auto'}
                   onClick={resetFilterHandler}

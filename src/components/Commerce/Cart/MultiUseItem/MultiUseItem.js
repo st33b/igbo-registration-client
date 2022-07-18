@@ -19,13 +19,13 @@ const multiUseItem = ({item, increase, decrease}) => {
     <div className={'ms-auto align-self-center pe-3'}>
       <a href={'#'}
          onClick={decreaseClickedHandler}
-         className={`${classes.DecreaseLink} mx-1 text-primary text-opacity-75`}>
+         className={`${classes.DecreaseLink} mx-1 text-primary`}>
         <i className={'bi-dash-square-fill'} />
         <span className={'visually-hidden'}>Decrease</span>
       </a>
       <a href={'#'}
          onClick={increaseClickedHandler}
-         className={`${classes.IncreaseLink} mx-1 text-primary text-opacity-75`}>
+         className={`${classes.IncreaseLink} mx-1 text-primary`}>
         <i className={'bi-plus-square-fill'} />
         <span className={'visually-hidden'}>Increase</span>
       </a>

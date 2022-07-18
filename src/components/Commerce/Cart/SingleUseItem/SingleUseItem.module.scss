@@ -1,5 +1,5 @@
 .SingleUseItem {
-  background-color: white;
+  background-color: var(--tournio-body-bg);
   p {
     margin: 0.5rem auto;
   }
@@ -11,5 +11,10 @@
   }
 }
 .Sticky {
-  background-color: #f5f5f5;
+  background-color: var(--tournio-gray-200);
+}
+@media (prefers-color-scheme: dark) {
+  .Sticky {
+    background-color: var(--tournio-gray-800);
+  }
 }

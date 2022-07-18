@@ -273,7 +273,7 @@ const TournamentDetails = ({tournament}) => {
   let youWillNeed = <hr/>;
   if (tournament.state === 'testing' || tournament.state === 'active' || tournament.state === 'demo') {
     youWillNeed = (
-      <div className={'border rounded-sm bg-light p-3'}>
+      <div className={'border rounded-sm p-3'}>
         <h6>
           You will need the following information for each registered bowler:
         </h6>
